@@ -52,7 +52,7 @@ namespace WebApp_UnderTheHood.Pages.Acount
 
         [Required]
         public string Password { get; set; }
-
+ 
         [Display (Name = "Remember Me")]
         public bool RememberMe { get; set; }
     }
