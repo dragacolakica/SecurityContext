@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using WebAppSecurity.Authorization;
 
 namespace WebApp_UnderTheHood.Pages.Acount
 {
@@ -42,18 +42,5 @@ namespace WebApp_UnderTheHood.Pages.Acount
             }
             return Page();
         }
-    }
-
-    public class Credential
-    {
-        [Required]
-        [Display(Name = "User Name")]
-        public string Username { get; set; }
-
-        [Required]
-        public string Password { get; set; }
- 
-        [Display (Name = "Remember Me")]
-        public bool RememberMe { get; set; }
     }
 }
