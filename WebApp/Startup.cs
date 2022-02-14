@@ -47,8 +47,8 @@ namespace WebApp
 
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "Account/Login";
-                options.AccessDeniedPath = "Account/AccessDenied";
+                options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/AccessDenied";
             });
         }
 
