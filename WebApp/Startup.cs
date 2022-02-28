@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Data;
+using WebApp.Services;
+using WebApp.Settings;
 
 namespace WebApp
 {
@@ -44,13 +46,16 @@ namespace WebApp
                 options.SignIn.RequireConfirmedEmail = true;
 
             })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/AccessDenied";
             });
+            services.Configure<SmtpSettings>(Configuration.GetSection("SMPT"));
+            services.AddSingleton<IEmailService, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
